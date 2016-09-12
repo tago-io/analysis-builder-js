@@ -1,7 +1,7 @@
 {
   "name": "tago-builder",
   "version": "1.0.0",
-  "description": "Tago Builder",
+  "description": "Tago Builder Node.JS",
   "main": "index.js",
   "homepage": "https://tago.io",
   "engines": {
@@ -31,9 +31,8 @@
     "tago",
     "iot",
     "tago.io",
-    "sdk",
-    "analysis",
-    "device"
+    "builder",
+    "analysis"
   ],
   "bugs": {
     "url": "https://github.com/tago-io/tago-builder-js/issues"
