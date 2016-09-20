@@ -8,16 +8,24 @@ const ora             = require('ora');
 const cli_folder      = path.join(__dirname, '../..');
 const currenct_folder = process.cwd();
 const spinner         = ora('Building... (It may take a few minutes)');
-const externals       = argv.force ? {} : {
-  'tago'            : 'tago',
-  'async'           : 'async',
-  'moment'          : 'moment',
-  'moment-timezone' : 'moment-timezone',
-  'crypto'          : 'crypto',
-  'co'              : 'co',
-  'lodash'          : 'lodash',
-  'underscore'      : 'lodash',
-  '_'               : 'lodash'
+
+const tagoctx = (module) => `require("${module}")`;
+
+const externals = argv.force ? {} : {
+  'tago'            : tagoctx('tago'),
+  'tago/analysis'   : tagoctx('tago/analysis'),
+  'tago/device'     : tagoctx('tago/devices'),
+  'tago/account'    : tagoctx('tago/account'),
+  'tago/services'   : tagoctx('tago/services'),
+  'tago/utils'      : tagoctx('tago/utils'),
+  'async'           : tagoctx('async'),
+  'moment'          : tagoctx('moment'),
+  'moment-timezone' : tagoctx('moment-timezone'),
+  'crypto'          : tagoctx('crypto'),
+  'co'              : tagoctx('co'),
+  'lodash'          : tagoctx('lodash'),
+  'underscore'      : tagoctx('lodash'),
+  '_'               : tagoctx('lodash'),
 };
 
 if (!argv._[0] || argv._[0] === 'help') {
