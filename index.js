@@ -14,7 +14,7 @@ const tagoctx = (module) => `require("${module}")`;
 const externals = argv.force ? {} : {
   'tago'            : tagoctx('tago'),
   'tago/analysis'   : tagoctx('tago/analysis'),
-  'tago/device'     : tagoctx('tago/devices'),
+  'tago/device'     : tagoctx('tago/device'),
   'tago/account'    : tagoctx('tago/account'),
   'tago/services'   : tagoctx('tago/services'),
   'tago/utils'      : tagoctx('tago/utils'),
