@@ -11,9 +11,14 @@ Tago Builder Node.JS.
 
 # Installation
 
-NODE >= v4
+NODE VERSION >= v6
 ```
 $ npm install -g tago-builder
+```
+
+NODE VERSION >= v4
+```
+$ npm install -g tago-builder@1.0.2
 ```
 
 # Quick Example

@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-'use strict';
-
 const argv            = require('yargs').argv;
 const path            = require('path');
 const webpack         = require('webpack');
@@ -46,9 +44,6 @@ function build() {
     target: 'node',
     module: {
       loaders: [{
-        test: /\.js$/,
-        loader: local_nm('babel-loader'),
-      }, {
         test: /\.json$/,
         loader: local_nm('json-loader'),
       }],

@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "https://tago.io",
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   },
   "scripts": {
     "test": "make test"
@@ -38,16 +38,14 @@
     "url": "https://github.com/tago-io/tago-builder-js/issues"
   },
   "dependencies": {
-    "babel-core": "^6.14.0",
-    "babel-loader": "^6.2.5",
-    "json-loader": "^0.5.4",
-    "ora": "^0.3.0",
-    "webpack": "^1.13.2",
-    "yargs": "^5.0.0"
+    "json-loader": "0.5.4",
+    "ora": "1.2.0",
+    "webpack": "2.3.2",
+    "yargs": "7.0.2"
   },
   "devDependencies": {
-    "eslint": "^3.5.0",
-    "eslint-config-airbnb-base": "^7.1.0",
-    "eslint-plugin-import": "^1.14.0"
+    "eslint": "3.18.0",
+    "eslint-config-airbnb-base": "11.1.2",
+    "eslint-plugin-import": "2.2.0"
   }
 }
