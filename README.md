@@ -1,3 +1,8 @@
+[![NPM](https://nodei.co/npm/tago-builder.png?downloads=true&downloadRank=true)](https://nodei.co/npm/tago-builder/) [![NPM](https://nodei.co/npm-dl/tago-builder.png?months=6&height=3)](https://nodei.co/npm/tago-builder/)
+
+[![Dependency Status](https://david-dm.org/tago-io/tago-builder.svg)](https://david-dm.org/tago-io/tago-builder)
+[![npm version](https://badge.fury.io/js/tago-builder.svg?style=flat)](http://badge.fury.io/js/tago-builder)
+
 # Description
 
 Tago Builder Node.JS.
