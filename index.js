@@ -35,6 +35,7 @@ function build() {
   const output_file = argv._[1] || `${input_file}.tago.js`;
 
   const compiler = webpack({
+    mode: 'development',
     context: currenct_folder,
     entry: `./${input_file}`,
     target: 'node',
