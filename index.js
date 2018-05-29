@@ -30,10 +30,6 @@ if (!argv._[0] || argv._[0] === 'help') {
   return require('./help');
 }
 
-function local_nm(module) {
-  return `${__dirname}/node_modules/${module}`;
-}
-
 function build() {
   const input_file = argv._[0];
   const output_file = argv._[1] || `${input_file}.tago.js`;
@@ -42,12 +38,7 @@ function build() {
     context: currenct_folder,
     entry: `./${input_file}`,
     target: 'node',
-    module: {
-      loaders: [{
-        test: /\.json$/,
-        loader: local_nm('json-loader'),
-      }],
-    },
+    module: {},
     output: {
       path: currenct_folder,
       filename: `./${output_file}`,
