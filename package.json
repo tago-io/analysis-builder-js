@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "https://tago.io",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "scripts": {
     "test": "make test"
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "ora": "2.1.0",
-    "webpack": "4.10.1",
+    "webpack": "4.11.1",
     "yargs": "11.0.0"
   },
   "devDependencies": {

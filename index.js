@@ -3,7 +3,8 @@ const argv            = require('yargs').argv;
 const path            = require('path');
 const webpack         = require('webpack');
 const ora             = require('ora');
-const cli_folder      = path.join(__dirname, '../..');
+const os              = require('os');
+const packageJSON     = require('./package.json');
 const currenct_folder = process.cwd();
 const spinner         = ora('Building... (It may take a few minutes)');
 
@@ -30,11 +31,19 @@ if (!argv._[0] || argv._[0] === 'help') {
   return require('./help');
 }
 
+const bannerMessage = `@tago-builder
+Tago (https://tago.io/)
+Tago Builder V${packageJSON.version} (https://git.io/vhEW5)
+
+Generated at: ${Date.now()} (${new Date()})
+Machine     : ${os.hostname()} - ${os.platform()}
+`;
+
 function build() {
   const input_file = argv._[0];
   const output_file = argv._[1] || `${input_file}.tago.js`;
 
-  const compiler = webpack({
+  const buildConfig = {
     mode: 'development',
     context: currenct_folder,
     entry: `./${input_file}`,
@@ -44,8 +53,19 @@ function build() {
       path: currenct_folder,
       filename: `./${output_file}`,
     },
+    plugins: [],
     externals: externals,
-  });
+  };
+
+  if (!argv.removeBanner) {
+    buildConfig.plugins.push(new webpack.BannerPlugin(bannerMessage));
+  }
+
+  if (argv.fullCode) {
+    buildConfig.devtool = 'inline-cheap-source-map';
+  }
+
+  const compiler = webpack(buildConfig);
 
   spinner.start();
   compiler.run((err, stats) => {
@@ -53,6 +73,7 @@ function build() {
     if (stats.hasErrors()) {
       return console.log(stats.compilation.errors);
     }
+
     console.log(`Analysis created at: ./${output_file}`);
   });
 }

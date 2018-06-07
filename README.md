@@ -15,21 +15,31 @@ Tago Builder Node.JS.
 | Forum / Community     | http://community.tago.io |
 
 # Installation
-
-NODE VERSION >= v6
 ```
 $ npm install -g tago-builder
-```
-
-NODE VERSION >= v4
-```
-$ npm install -g tago-builder@1.0.2
 ```
 
 # Quick Example
 ## Simple build
 ``` bash
 $ tago-builder myanalysis.js myanalysis.tago.js
+or
+$ tago-builder myanalysis.js
+```
+
+## Helper
+```
+usage: tago-builder [--options] <input file>
+To see help text, you can run:
+
+  tago-builder help
+  tago-builder <file input>
+  tago-builder <file input> <file output>
+  tago-builder --force <file input> <file output>
+  tago-builder --removeBanner <file input>
+  tago-builder --fullCode <file input>
+
+* --force, it will not ignore the modules that already exist on Tago context.
 ```
 
 # License
