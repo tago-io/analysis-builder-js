@@ -24,6 +24,7 @@ const externals = argv.force ? {} : {
   'co'              : tagoctx('co'),
   'lodash'          : tagoctx('lodash'),
   'underscore'      : tagoctx('lodash'),
+  '_'               : tagoctx('lodash'),
   'b64'             : tagoctx('b64'),
   'pdfkit'          : tagoctx('pdfkit'),
 };
