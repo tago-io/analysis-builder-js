@@ -25,8 +25,6 @@ const externals = argv.force ? {} : {
   'lodash'          : tagoctx('lodash'),
   'underscore'      : tagoctx('lodash'),
   '_'               : tagoctx('lodash'),
-  'b64'             : tagoctx('b64'),
-  'pdfkit'          : tagoctx('pdfkit'),
 };
 
 if (!argv._[0] || argv._[0] === 'help') {
