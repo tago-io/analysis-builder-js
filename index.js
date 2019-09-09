@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const argv            = require('yargs').argv;
 const webpack         = require('webpack');
+const MinifyPlugin    = require("babel-minify-webpack-plugin");
 const os              = require('os');
 const packageJSON     = require('./package.json');
 const currenct_folder = process.cwd();
@@ -61,6 +62,10 @@ function build() {
 
   if (argv.sourceMap) {
     buildConfig.devtool = 'inline-source-map';
+  }
+
+  if (argv.obfuscate) {
+    buildConfig.plugins.push(new MinifyPlugin());
   }
 
   const compiler = webpack(buildConfig);

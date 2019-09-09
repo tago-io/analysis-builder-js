@@ -1,7 +1,7 @@
 {
   "name": "tago-builder",
   "version": "2.2.3",
-  "description": "Tago Builder Node.JS",
+  "description": "TagoIO Builder Node.JS",
   "main": "index.js",
   "homepage": "https://tago.io",
   "engines": {
@@ -38,6 +38,7 @@
     "url": "https://github.com/tago-io/tago-builder-js/issues"
   },
   "dependencies": {
+    "babel-minify-webpack-plugin": "0.3.1",
     "webpack": "4.39.3",
     "yargs": "14.0.0"
   },
