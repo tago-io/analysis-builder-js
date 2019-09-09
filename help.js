@@ -1,5 +1,5 @@
-const help =
-`usage: tago-builder [--options] <input file>
+const help = `
+usage: tago-builder [--options] <input file>
 To see help text, you can run:
 
   tago-builder help
@@ -7,9 +7,9 @@ To see help text, you can run:
   tago-builder <file input> <file output>
   tago-builder --force <file input> <file output>
   tago-builder --removeBanner <file input>
-  tago-builder --fullCode <file input>
+  tago-builder --sourceMap <file input>
 
-* --force, it will not ignore the modules that already exist on Tago context.
+* --force, it will not ignore the modules that already exist on TagoIO context.
 `;
 
 console.log(help);
