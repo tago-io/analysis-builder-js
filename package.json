@@ -1,6 +1,6 @@
 {
   "name": "tago-builder",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "TagoIO Builder Node.JS",
   "main": "index.js",
   "homepage": "https://tago.io",
@@ -39,12 +39,14 @@
   },
   "dependencies": {
     "babel-minify-webpack-plugin": "0.3.1",
-    "webpack": "4.39.3",
-    "yargs": "14.0.0"
+    "ts-loader": "6.2.2",
+    "typescript": "3.8.3",
+    "webpack": "4.42.1",
+    "yargs": "15.3.1"
   },
   "devDependencies": {
-    "eslint": "6.3.0",
-    "eslint-config-airbnb-base": "14.0.0",
-    "eslint-plugin-import": "2.18.2"
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "14.1.0",
+    "eslint-plugin-import": "2.20.1"
   }
 }

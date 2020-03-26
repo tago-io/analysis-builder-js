@@ -1,17 +1,15 @@
-[![NPM](https://nodei.co/npm/tago-builder.png?downloads=true&downloadRank=true)](https://nodei.co/npm/tago-builder/) [![NPM](https://nodei.co/npm-dl/tago-builder.png?months=6&height=3)](https://nodei.co/npm/tago-builder/)
-
 [![npm version](https://badge.fury.io/js/tago-builder.svg?style=flat)](http://badge.fury.io/js/tago-builder)
 
 # Description
 
-Tago Builder Node.JS.
+TagoIO Builder Node.JS.
 
 | what                  | where                    |
 |-----------------------|--------------------------|
-| Tago website          | http://tago.io           |
-| SDK documentation     | http://sdk.js.tago.io    |
-| General documentation | http://docs.tago.io      |
-| Forum / Community     | http://community.tago.io |
+| Tago website          | https://tago.io           |
+| SDK documentation     | https://sdk.js.tago.io    |
+| General documentation | https://docs.tago.io      |
+| Forum / Community     | https://community.tago.io |
 
 # Installation
 ```
@@ -36,11 +34,15 @@ To see help text, you can run:
   tago-builder <file input> <file output>
   tago-builder --force <file input> <file output>
   tago-builder --removeBanner <file input>
-  tago-builder --fullCode <file input>
+  tago-builder --sourceMap <file input>
+  tago-builder --obfuscate <file input>
 
-* --force, it will not ignore the modules that already exist on Tago context.
+Notes:
+### <file input> can be a javascript or typescript file.
+### --force, it will not ignore the modules that already exist on TagoIO context.
+### --tsconfig, generate a tsconfig.json file on current folder.
 ```
 
 # License
 
-Tago Builder is released under the [Apache-2.0 License](https://github.com/tago-io/tago-builder-js/blob/master/LICENSE.md).
+TagoIO Builder is released under the [Apache-2.0 License](https://github.com/tago-io/tago-builder-js/blob/master/LICENSE.md).

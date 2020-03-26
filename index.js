@@ -1,32 +1,41 @@
 #!/usr/bin/env node
-const argv            = require('yargs').argv;
-const webpack         = require('webpack');
-const MinifyPlugin    = require("babel-minify-webpack-plugin");
-const os              = require('os');
-const packageJSON     = require('./package.json');
+const { argv }     = require('yargs');
+const webpack      = require('webpack');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
+const os           = require('os');
+const fs           = require('fs');
+const packageJSON  = require('./package.json');
+
 const currenct_folder = process.cwd();
 
 const tagoctx = (module) => `require("${module}")`;
 
 const externals = argv.force ? {} : {
-  'tago'            : tagoctx('tago'),
-  'tago/analysis'   : tagoctx('tago/analysis'),
-  'tago/device'     : tagoctx('tago/device'),
-  'tago/account'    : tagoctx('tago/account'),
-  'tago/services'   : tagoctx('tago/services'),
-  'tago/utils'      : tagoctx('tago/utils'),
-  'async'           : tagoctx('async'),
-  'moment'          : tagoctx('moment'),
-  'moment-timezone' : tagoctx('moment-timezone'),
-  'crypto'          : tagoctx('crypto'),
-  'co'              : tagoctx('co'),
-  'lodash'          : tagoctx('lodash'),
-  'underscore'      : tagoctx('lodash'),
-  '_'               : tagoctx('lodash'),
+  'tago/analysis': tagoctx('tago/analysis'),
+  'tago/device': tagoctx('tago/device'),
+  'tago/account': tagoctx('tago/account'),
+  'tago/services': tagoctx('tago/services'),
+  'tago/utils': tagoctx('tago/utils'),
+  'moment-timezone': tagoctx('moment-timezone'),
+  tago: tagoctx('tago'),
+  async: tagoctx('async'),
+  moment: tagoctx('moment'),
+  crypto: tagoctx('crypto'),
+  co: tagoctx('co'),
+  lodash: tagoctx('lodash'),
+  underscore: tagoctx('lodash'),
+  _: tagoctx('lodash'),
 };
 
+if (argv.tsconfig) {
+  const tsfile = fs.readFileSync(`${__dirname}/tsconfig.json`, 'utf-8');
+  fs.writeFileSync(`${currenct_folder}/tsconfig.json`, tsfile);
+  process.exit(0);
+}
+
 if (!argv._[0] || argv._[0] === 'help') {
-  return require('./help');
+  require('./help');
+  process.exit(0);
 }
 
 const bannerMessage = `@tago-builder
@@ -39,7 +48,7 @@ Generated at :: ${Date.now()} (${new Date()})
 Machine      :: ${os.hostname()} - ${os.platform()}`;
 
 function build() {
-  const input_file = argv._[0];
+  const input_file = String(argv._[0]);
   const output_file = argv._[1] || `${input_file}.tago.js`;
 
   const buildConfig = {
@@ -47,13 +56,13 @@ function build() {
     context: currenct_folder,
     entry: `./${input_file}`,
     target: 'node',
-    module: {},
+    module: { rules: [] },
     output: {
       path: currenct_folder,
       filename: `./${output_file}`,
     },
     plugins: [new webpack.ProgressPlugin()],
-    externals: externals,
+    externals,
   };
 
   if (!argv.removeBanner) {
@@ -68,15 +77,36 @@ function build() {
     buildConfig.plugins.push(new MinifyPlugin());
   }
 
+  if (input_file.endsWith('.ts')) {
+    let tsconfigFile = `${currenct_folder}/tsconfig.json`;
+
+    if (fs.existsSync(tsconfigFile)) {
+      console.info('Using custom tsconfig.json\n');
+    } else {
+      tsconfigFile = `${__dirname}/tsconfig.json`;
+      console.info('Using tago-builder tsconfig.json\n');
+    }
+
+    buildConfig.module.rules.push({
+      test: /\.ts$/,
+      loader: `${__dirname}/node_modules/ts-loader`,
+      options: {
+        configFile: tsconfigFile,
+      },
+    });
+  }
+
   const compiler = webpack(buildConfig);
 
   console.log('Building... (It may take a few minutes)');
   compiler.run((err, stats) => {
     if (stats.hasErrors()) {
-      return console.log(stats.compilation.errors);
+      for (const error of stats.compilation.errors) {
+        console.log(error.message);
+      }
+    } else {
+      console.log(`\nAnalysis created at: ./${output_file}`);
     }
-
-    console.log(`Analysis created at: ./${output_file}`);
   });
 }
 
