@@ -36,6 +36,7 @@ To see help text, you can run:
   tago-builder --removeBanner <file input>
   tago-builder --sourceMap <file input>
   tago-builder --obfuscate <file input>
+  tago-builder --tsconfig
 
 Notes:
 ### <file input> can be a javascript or typescript file.
