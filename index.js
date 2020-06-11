@@ -79,21 +79,30 @@ function build() {
 
   if (input_file.endsWith('.ts')) {
     let tsconfigFile = `${currenct_folder}/tsconfig.json`;
+    let tsLoaderModule = `${currenct_folder}/node_modules/ts-loader`;
 
-    if (fs.existsSync(tsconfigFile)) {
-      console.info('Using custom tsconfig.json\n');
-    } else {
+    if (!fs.existsSync(tsconfigFile)) {
       tsconfigFile = `${__dirname}/tsconfig.json`;
       console.info('Using tago-builder tsconfig.json\n');
+    } else {
+      console.info('Using custom tsconfig.json\n');
+    }
+
+    if (!fs.existsSync(tsLoaderModule)) {
+      tsLoaderModule = `${__dirname}/node_modules/ts-loader`;
     }
 
     buildConfig.module.rules.push({
       test: /\.ts$/,
-      loader: `${__dirname}/node_modules/ts-loader`,
+      loader: tsLoaderModule,
       options: {
         configFile: tsconfigFile,
       },
     });
+
+    buildConfig.resolve = {
+      extensions: ['.ts', '.js'],
+    };
   }
 
   const compiler = webpack(buildConfig);
