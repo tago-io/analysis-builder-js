@@ -1,6 +1,6 @@
 {
   "name": "tago-builder",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "TagoIO Builder Node.JS",
   "main": "index.js",
   "homepage": "https://tago.io",
@@ -13,14 +13,7 @@
   "bin": {
     "tago-builder": "./index.js"
   },
-  "contributors": [
-    "Felipe Lima <felipe@ferreiradelima.com>",
-    "Vitor Lima <vitor@ferreiradelima.com>"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tago-io/tago-builder-js.git"
-  },
+  "repository": "tago-io/analysis-builder-js",
   "author": {
     "name": "Tago LLC",
     "email": "contact@tago.io",
@@ -30,16 +23,18 @@
   "keywords": [
     "tago",
     "tagoio",
+    "tago-io",
     "iot",
     "tago.io",
     "builder",
     "analysis"
   ],
   "bugs": {
-    "url": "https://github.com/tago-io/tago-builder-js/issues"
+    "url": "https://github.com/tago-io/analysis-builder-js/issues"
   },
   "dependencies": {
     "babel-minify-webpack-plugin": "0.3.1",
+    "chalk": "4.1.0",
     "ts-loader": "8.0.1",
     "typescript": "3.9.7",
     "webpack": "4.43.0",
