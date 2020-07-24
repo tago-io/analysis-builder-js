@@ -68,7 +68,7 @@ function build() {
 
     if (!fs.existsSync(tsconfigFile)) {
       tsconfigFile = `${__dirname}/tsconfig.json`;
-      console.info('Using tago-builder tsconfig.json\n');
+      console.info('Using analysis-builder tsconfig.json\n');
     } else {
       console.info('Using custom tsconfig.json\n');
     }

@@ -1,15 +1,15 @@
 const help = `
-usage: tago-builder [--options] <input file>
+usage: analysis-builder [--options] <input file>
 To see help text, you can run:
 
-  tago-builder help
-  tago-builder <file input>
-  tago-builder <file input> <file output>
-  tago-builder --force <file input> <file output>
-  tago-builder --removeBanner <file input>
-  tago-builder --sourceMap <file input>
-  tago-builder --obfuscate <file input>
-  tago-builder --tsconfig
+  analysis-builder help
+  analysis-builder <file input>
+  analysis-builder <file input> <file output>
+  analysis-builder --force <file input> <file output>
+  analysis-builder --removeBanner <file input>
+  analysis-builder --sourceMap <file input>
+  analysis-builder --obfuscate <file input>
+  analysis-builder --tsconfig
 
 Notes:
 ### <file input> can be a javascript or typescript file.

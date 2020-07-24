@@ -1,42 +1,43 @@
-[![npm version](https://badge.fury.io/js/tago-builder.svg?style=flat)](http://badge.fury.io/js/tago-builder)
+# TagoIO - Analysis Builder for Javascript and Typescript
+> TagoIO provides easy connection of electronic devices with external data to driver smarter decisions using contextual analysis.
 
-# Description
-
-TagoIO Builder Node.JS.
+## Description
+When you are programming, it can be useful to use other packages inside your code; or you may want to organize your project using require and sub-folders.
 
 | what                  | where                    |
 |-----------------------|--------------------------|
-| Tago website          | https://tago.io           |
-| SDK documentation     | https://sdk.js.tago.io    |
+| TagoIO website        | https://tago.io           |
 | General documentation | https://docs.tago.io      |
 | Forum / Community     | https://community.tago.io |
 
-# Installation
+## Installation
 ```
-$ npm install -g tago-builder
+$ npm install -g @tago-io/builder
 ```
 
-# Quick Example
-## Simple build
+## Quick Example
+### Simple build
 ``` bash
-$ tago-builder myanalysis.js myanalysis.tago.js
+$ analysis-builder myAnalysis.js myAnalysis.tago-io.js
 or
-$ tago-builder myanalysis.js
+$ analysis-builder myAnalysis.js
+or
+$ analysis-builder myAnalysis.ts # for typescript
 ```
 
 ## Helper
 ```
-usage: tago-builder [--options] <input file>
+usage: analysis-builder [--options] <input file>
 To see help text, you can run:
 
-  tago-builder help
-  tago-builder <file input>
-  tago-builder <file input> <file output>
-  tago-builder --force <file input> <file output>
-  tago-builder --removeBanner <file input>
-  tago-builder --sourceMap <file input>
-  tago-builder --obfuscate <file input>
-  tago-builder --tsconfig
+  analysis-builder help
+  analysis-builder <file input>
+  analysis-builder <file input> <file output>
+  analysis-builder --force <file input> <file output>
+  analysis-builder --removeBanner <file input>
+  analysis-builder --sourceMap <file input>
+  analysis-builder --obfuscate <file input>
+  analysis-builder --tsconfig
 
 Notes:
 ### <file input> can be a javascript or typescript file.
@@ -44,6 +45,6 @@ Notes:
 ### --tsconfig, generate a tsconfig.json file on current folder.
 ```
 
-# License
+## License
 
-TagoIO Builder is released under the [Apache-2.0 License](https://github.com/tago-io/tago-builder-js/blob/master/LICENSE.md).
+TagoIO Builder is released under the [Apache-2.0 License](https://github.com/tago-io/analysis-builder-js/blob/master/LICENSE.md).

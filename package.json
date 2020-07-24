@@ -1,16 +1,14 @@
 {
-  "name": "tago-builder",
-  "version": "2.4.3",
+  "name": "@tago-io/builder",
+  "version": "2.4.4",
   "description": "TagoIO Builder Node.JS",
   "main": "index.js",
   "homepage": "https://tago.io",
   "engines": {
     "node": ">=10.0.0"
   },
-  "scripts": {
-    "test": "make test"
-  },
   "bin": {
+    "analysis-builder": "./index.js",
     "tago-builder": "./index.js"
   },
   "repository": "tago-io/analysis-builder-js",
