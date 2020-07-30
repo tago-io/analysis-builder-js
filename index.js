@@ -1,12 +1,26 @@
 #!/usr/bin/env node
-const { argv }     = require('yargs');
-const chalk        = require('chalk');
-const webpack      = require('webpack');
-const MinifyPlugin = require('babel-minify-webpack-plugin');
-const os           = require('os');
-const fs           = require('fs');
-const externals    = require('./externals');
-const packageJSON  = require('./package.json');
+const { argv }       = require('yargs');
+const chalk          = require('chalk');
+const webpack        = require('webpack');
+const MinifyPlugin   = require('babel-minify-webpack-plugin');
+const os             = require('os');
+const fs             = require('fs');
+const updateNotifier = require('update-notifier');
+const externals      = require('./externals');
+const packageJSON    = require('./package.json');
+
+const notifier = updateNotifier({ pkg: packageJSON });
+notifier.notify({
+  defer: false,
+  isGlobal: true,
+  boxenOptions: {
+    padding: 1,
+    margin: 1,
+    align: 'center',
+    borderColor: '#347AB7',
+    borderStyle: 'bold',
+  },
+});
 
 const currentFolder = process.cwd();
 

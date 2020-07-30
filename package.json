@@ -35,6 +35,7 @@
     "chalk": "4.1.0",
     "ts-loader": "8.0.1",
     "typescript": "3.9.7",
+    "update-notifier": "4.1.0",
     "webpack": "4.43.0",
     "yargs": "15.4.1"
   },
