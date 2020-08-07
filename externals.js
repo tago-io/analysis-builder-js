@@ -12,6 +12,7 @@ function externals(force = false) {
     'moment-timezone': requireExternal('moment-timezone'),
     '@tago-io/sdk': requireExternal('@tago-io/sdk'),
     tago: requireExternal('tago'),
+    geolib: requireExternal('geolib'),
     async: requireExternal('async'),
     moment: requireExternal('moment'),
     co: requireExternal('co'),
