@@ -11,14 +11,16 @@ function externals(force = false) {
     'tago/utils': requireExternal('tago/utils'),
     'moment-timezone': requireExternal('moment-timezone'),
     '@tago-io/sdk': requireExternal('@tago-io/sdk'),
+    'date-fns': requireExternal('date-fns'),
+    'date-fns-tz': requireExternal('date-fns'),
+    'lora-packet': requireExternal('lora-packet'),
+    dayjs: requireExternal('dayjs'),
+    luxon: requireExternal('luxon'),
     tago: requireExternal('tago'),
     geolib: requireExternal('geolib'),
-    async: requireExternal('async'),
     moment: requireExternal('moment'),
-    co: requireExternal('co'),
+    axios: requireExternal('axios'),
     lodash: requireExternal('lodash'),
-    underscore: requireExternal('lodash'),
-    _: requireExternal('lodash'),
   };
 }
 
