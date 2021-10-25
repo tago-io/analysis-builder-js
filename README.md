@@ -27,22 +27,20 @@ $ analysis-builder myAnalysis.ts # for typescript
 
 ## Helper
 ```
-usage: analysis-builder [--options] <input file>
-To see help text, you can run:
+Usage: analysis-builder [options] <input_file> [output_file]
 
-  analysis-builder help
-  analysis-builder <file input>
-  analysis-builder <file input> <file output>
-  analysis-builder --force <file input> <file output>
-  analysis-builder --removeBanner <file input>
-  analysis-builder --sourceMap <file input>
-  analysis-builder --obfuscate <file input>
-  analysis-builder --tsconfig
+Arguments:
+  input_file           Original file to make build, can be a javascript or typescript file
+  output_file          [optional] Destination name
 
-Notes:
-### <file input> can be a javascript or typescript file.
-### --force, it will not ignore the modules that already exist on TagoIO context.
-### --tsconfig, generate a tsconfig.json file on current folder.
+Options:
+  -V, --version        output the version number
+  -F, --force          it will not ignore the modules that already exist on TagoIO context (default: false)
+  -rb, --removeBanner  Remove banner on output file (default: false)
+  -ob, --obfuscate     Make the output file hard to understand (default: false)
+  -w, --watch          Enabling watch mode on Analysis Build, it's listen for changes on the file system and to rebuild whenever a file changes (default: false)
+  --tsconfig           Generate a tsconfig.json file on current folder
+  -h, --help           display help for command
 ```
 
 ## License
