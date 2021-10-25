@@ -3,11 +3,11 @@ env:
   es6: true
 extends:
   - 'eslint:recommended'
-  - 'airbnb-base'
 parserOptions:
   ecmaFeatures:
     jsx: false
     globalReturn: true
+  ecmaVersion: 2020
   sourceType: module
 rules:
   camelcase: 0
