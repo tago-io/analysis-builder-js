@@ -113,7 +113,8 @@ async function build() {
       console.info(chalk.bgMagenta.white('*** Watch Mode activated, looking for changes... (CTRL+C to exit) ***\n'));
     }
   } catch (error) {
-    console.info(chalk.red('Error on build, aborted.'));
+    console.log(chalk.red(error));
+    console.info(chalk.red('\n\nError on build, aborted.'));
   }
 }
 
