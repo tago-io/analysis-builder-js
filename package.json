@@ -1,6 +1,6 @@
 {
   "name": "@tago-io/builder",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "TagoIO Builder Node.JS",
   "main": "index.js",
   "homepage": "https://tago.io",
