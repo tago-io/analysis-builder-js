@@ -22,4 +22,4 @@ function externals(force = false) {
   ];
 }
 
-module.exports = externals;
+export default externals;

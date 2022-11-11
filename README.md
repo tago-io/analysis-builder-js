@@ -1,32 +1,46 @@
-# TagoIO - Analysis Builder for Javascript and Typescript
+# TagoIO - Analysis Builder for JavaScript and TypeScript
+
 > TagoIO provides easy connection of electronic devices with external data to driver smarter decisions using contextual analysis.
 
 ## Description
+
 When you are programming, it can be useful to use other packages inside your code; or you may want to organize your project using require and sub-folders.
 
-| what                  | where                    |
-|-----------------------|--------------------------|
-| TagoIO website        | https://tago.io           |
-| General documentation | https://docs.tago.io      |
-| Forum / Community     | https://community.tago.io |
+| what                  | where                       |
+| --------------------- | --------------------------- |
+| TagoIO website        | <https://tago.io>           |
+| General documentation | <https://docs.tago.io>      |
+| Forum / Community     | <https://community.tago.io> |
 
 ## Installation
-```
-$ npm install -g @tago-io/builder
+
+```bash
+npm install -g @tago-io/builder
 ```
 
 ## Quick Example
-### Simple build
-``` bash
-$ analysis-builder myAnalysis.js myAnalysis.tago-io.js
-or
-$ analysis-builder myAnalysis.js
-or
-$ analysis-builder myAnalysis.ts # for typescript
+
+Build with custom output file:
+
+```bash
+analysis-builder myAnalysis.js myAnalysis.tago-io.js
+```
+
+Build without custom output file, he output will be `myAnalysis.tago-io.js`:
+
+```bash
+analysis-builder myAnalysis.js
+```
+
+Build without custom output file and using TypeScript, the output will be `myAnalysis.tago-io.js`:
+
+```bash
+analysis-builder myAnalysis.ts # for typescript
 ```
 
 ## Helper
-```
+
+```text
 Usage: analysis-builder [options] <input_file> [output_file]
 
 Arguments:
