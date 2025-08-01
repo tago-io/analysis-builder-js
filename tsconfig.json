@@ -2,12 +2,21 @@
   "compilerOptions": {
     "outDir": "./out",
     "noImplicitAny": false,
-    "module": "commonjs",
-    "target": "ES2020",
-    "lib": ["ES2020"],
+    "module": "ESNext",
+    "target": "ES2022",
+    "lib": ["ES2022"],
     "allowJs": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
-    "resolveJsonModule": true
-  }
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": false
+  },
+  "include": ["**/*.ts", "**/*.js"],
+  "exclude": ["node_modules", "out", "**/*.tago-io.js"]
 }

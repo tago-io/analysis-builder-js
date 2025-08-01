@@ -1,14 +1,14 @@
 #!/usr/bin/env node
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { hostname, platform, userInfo } from 'node:os';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import chalk from 'chalk';
-import updateNotifier from 'update-notifier';
-import externals from './externals.js';
 import { program } from 'commander';
 import { build as esbuild } from 'esbuild';
-import { userInfo, hostname, platform } from 'os';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { DateTime } from 'luxon';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import updateNotifier from 'update-notifier';
+import externals from './externals.js';
 
 const packageJSON = JSON.parse(readFileSync(new URL('./package.json', import.meta.url)));
 const __filename = fileURLToPath(import.meta.url);
@@ -18,10 +18,18 @@ program
   .version(packageJSON.version)
   .argument('<input_file>', 'Original file to make build, can be a javascript or typescript file')
   .argument('[output_file]', '[optional] Destination name')
-  .option('-F, --force', 'it will not ignore the modules that already exist on TagoIO context', false)
-  .option('-rb, --removeBanner', 'Remove banner on output file', false)
-  .option('-ob, --obfuscate', 'Make the output file hard to understand', false)
-  .option('-w, --watch', 'Enabling watch mode on Analysis Build, it\'s listen for changes on the file system and to rebuild whenever a file changes', false)
+  .option(
+    '-F, --force',
+    'it will not ignore the modules that already exist on TagoIO context',
+    false
+  )
+  .option('--removeBanner', 'Remove banner on output file', false)
+  .option('--obfuscate', 'Make the output file hard to understand', false)
+  .option(
+    '-w, --watch',
+    "Enabling watch mode on Analysis Build, it's listen for changes on the file system and to rebuild whenever a file changes",
+    false
+  )
   .option('--tsconfig', 'Generate a tsconfig.json file on current folder');
 
 program.addHelpText('before', `TagoIO Builder V${packageJSON.version} (https://git.io/JJ8Si)\n`);
@@ -70,17 +78,17 @@ console.info(chalk.green(bannerMessage), '\n');
 
 async function build() {
   /**
-  * @type {esbuild.BuildOptions}
-  */
+   * @type {esbuild.BuildOptions}
+   */
   const buildConfig = {
     platform: 'node',
-    target: 'node14',
+    target: 'node20',
     absWorkingDir: currentFolder,
     entryPoints: [`./${inputFile}`],
     bundle: true,
     outfile: outputFile,
     minify: options.obfuscate || false,
-    external: externals(options.force)
+    external: externals(options.force),
   };
 
   if (options.watch) {
@@ -89,7 +97,9 @@ async function build() {
         if (error) {
           console.info(chalk.redBright(`${DateTime.local().toFormat('tt')} - Error on build.`));
         } else {
-          console.info(chalk.greenBright(`${DateTime.local().toFormat('tt')} - Rebuild with success.`));
+          console.info(
+            chalk.greenBright(`${DateTime.local().toFormat('tt')} - Rebuild with success.`)
+          );
         }
       },
     };
@@ -115,7 +125,11 @@ async function build() {
     await esbuild(buildConfig);
     console.info(chalk.greenBright(`\nAnalysis file was saved at: ./${outputFile}\n`));
     if (options.watch) {
-      console.info(chalk.bgMagenta.white('*** Watch Mode activated, looking for changes... (CTRL+C to exit) ***\n'));
+      console.info(
+        chalk.bgMagenta.white(
+          '*** Watch Mode activated, looking for changes... (CTRL+C to exit) ***\n'
+        )
+      );
     }
   } catch (error) {
     console.log(chalk.red(error));
