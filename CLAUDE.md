@@ -16,7 +16,7 @@ This is **TagoIO Builder** - a CLI tool that bundles JavaScript/TypeScript analy
 ### Core Functionality
 
 The CLI accepts user analysis files and:
-1. Bundles them with esbuild, excluding TagoIO-provided modules
+1. Bundles them with esbuild, including all modules by default for better compatibility
 2. Adds metadata banner with build info
 3. Outputs optimized `.tago-io.js` file for TagoIO platform
 4. Supports TypeScript compilation, watch mode, and obfuscation
@@ -45,7 +45,7 @@ npx tsc --noEmit
 ## Important Implementation Details
 
 ### External Modules System
-The `externals.js` file defines modules that should NOT be bundled (available in TagoIO runtime). When adding new external modules, update this list. The `--force` flag can override this behavior.
+The `externals.js` file defines modules that can be excluded from bundling (available in TagoIO runtime). By default, all modules are bundled for better compatibility. The `--legacy` flag enables the old behavior of excluding these modules.
 
 ### CLI Option Changes
 Recent Commander.js updates require proper option formatting. Use long-form options (e.g., `--removeBanner`) rather than short multi-character options (avoid `-rb`).
