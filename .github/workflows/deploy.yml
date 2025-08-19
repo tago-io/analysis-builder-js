@@ -1,0 +1,44 @@
+name: Deploy to NPM
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run lint
+        run: npm run lint
+      
+      - name: Run tests
+        run: npm run test
+      
+      - name: Test CLI functionality
+        run: |
+          node index.js --help
+          echo "console.log('test');" > test.js
+          node index.js test.js
+          [ -f test.tago-io.js ] && echo "Bundle created successfully" || exit 1
+          rm test.js test.tago-io.js
+      
+      - name: Publish to npm
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
