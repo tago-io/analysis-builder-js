@@ -1,6 +1,6 @@
 {
   "name": "@tago-io/builder",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "TagoIO Builder Node.JS",
   "main": "index.js",
   "type": "module",
@@ -10,10 +10,13 @@
     "npm": ">=8.0.0"
   },
   "bin": {
-    "analysis-builder": "./index.js",
-    "tago-builder": "./index.js"
+    "analysis-builder": "index.js",
+    "tago-builder": "index.js"
   },
-  "repository": "tago-io/analysis-builder-js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tago-io/analysis-builder-js.git"
+  },
   "author": {
     "name": "Tago LLC",
     "email": "contact@tago.io",
