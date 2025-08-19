@@ -6,8 +6,8 @@
   "type": "module",
   "homepage": "https://tago.io",
   "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
+    "node": ">=20.19.0",
+    "npm": ">=8.0.0"
   },
   "bin": {
     "analysis-builder": "./index.js",
@@ -33,17 +33,24 @@
     "url": "https://github.com/tago-io/analysis-builder-js/issues"
   },
   "dependencies": {
-    "chalk": "5.1.2",
-    "commander": "9.4.1",
-    "esbuild": "0.15.13",
-    "luxon": "3.1.0",
-    "typescript": "4.8.4",
-    "update-notifier": "6.0.2"
+    "chalk": "^5.5.0",
+    "commander": "^14.0.0",
+    "esbuild": "^0.25.8",
+    "luxon": "^3.7.1",
+    "typescript": "^5.9.2",
+    "update-notifier": "^7.3.1"
   },
   "devDependencies": {
-    "@types/luxon": "3.1.0",
-    "@types/node": "18.11.9",
-    "@types/update-notifier": "6.0.1",
-    "eslint": "8.27.0"
+    "@types/luxon": "^3.7.1",
+    "@types/node": "^22.10.2",
+    "@types/update-notifier": "^6.0.8",
+    "@biomejs/biome": "2.1.4"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "test": "echo 'CLI tests will run in GitHub Actions. Manual testing: node index.js --help'"
   }
 }

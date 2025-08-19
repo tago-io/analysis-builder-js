@@ -49,9 +49,9 @@ Arguments:
 
 Options:
   -V, --version        output the version number
-  -F, --force          it will not ignore the modules that already exist on TagoIO context (default: false)
-  -rb, --removeBanner  Remove banner on output file (default: false)
-  -ob, --obfuscate     Make the output file hard to understand (default: false)
+  --legacy             use legacy behavior - exclude modules that already exist on TagoIO context (default: false)
+  --removeBanner       Remove banner on output file (default: false)
+  --obfuscate          Make the output file hard to understand (default: false)
   -w, --watch          Enabling watch mode on Analysis Build, it's listen for changes on the file system and to rebuild whenever a file changes (default: false)
   --tsconfig           Generate a tsconfig.json file on current folder
   -h, --help           display help for command
